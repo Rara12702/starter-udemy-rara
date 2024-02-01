@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="profile-widget-description">
-                            <div class="profile-widget-name">Ujang Maman <div
+                            <div class="profile-widget-name">{{ auth()->user()->name }}<div
                                     class="text-muted d-inline font-weight-normal">
                                     <div class="slash"></div> Web Developer
                                 </div>
@@ -44,7 +44,7 @@
                             {{ Auth::user()->bio }}
                         </div>
                         <div class="card-footer text-center">
-                            <div class="font-weight-bold mb-2">Follow Ujang On</div>
+                            <div class="font-weight-bold mb-2">Follow {{ auth()->user()->name }}</div>
                             <a href="#" class="btn btn-social-icon btn-facebook mr-1">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
