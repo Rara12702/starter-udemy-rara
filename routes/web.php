@@ -14,5 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
+});
+
+Route::middleware(['auth','verified'])->group(function () {
+    Route::get('home', function () {
+        return view('dashboard.home');
+    })->name('home');
+
+    Route::get('edit-profile', function () {
+        return view('dashboard.profile');
+    })->name('profile.edit');
+
+    Route::get('edit-password', function () {
+        return view('dashboard.password');
+    })->name('password.edit');
 });
