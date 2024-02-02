@@ -1,5 +1,8 @@
 <?php
 
+use GuzzleHttp\Middleware;
+use Illuminate\Http\Request;
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +25,7 @@ Route::middleware(['auth','verified'])->group(function () {
         return view('dashboard.home');
     })->name('home');
 
-    Route::get('edit-profile', function () {
+    Route::get('edit-profile', function (Request $request) {
         return view('dashboard.profile');
     })->name('profile.edit');
 
