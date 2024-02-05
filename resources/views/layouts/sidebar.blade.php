@@ -21,12 +21,14 @@
                     </li>
                 </ul>
             </li>
+            @can('index-user')
             {{-- manage user --}}
             <li class="nav-item ">
                 <a href="{{ route ('users.index') }}" class="nav-link "><i class="fas fa-users"></i>
                     <span>User List</span></a>
             </li>
         @show
+        @endcan
     </ul>
 
     <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
