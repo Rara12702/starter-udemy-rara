@@ -29,7 +29,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('change-profile', function (Request $request) {
         return view('dashboard.profile');
-    })->name('profile');
+    })->name('profile.edit');
 
     Route::resource('users', UserController::class);
 });
