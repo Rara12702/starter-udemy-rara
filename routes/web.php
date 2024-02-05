@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Routing\RouteGroup;
@@ -11,8 +12,8 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
 |
 */
 
@@ -20,16 +21,15 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::middleware(['auth','verified'])->group(function () {
+
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('home', function () {
         return view('dashboard.home');
     })->name('home');
 
-    Route::get('edit-profile', function (Request $request) {
+    Route::get('change-profile', function (Request $request) {
         return view('dashboard.profile');
-    })->name('profile.edit');
+    })->name('profile');
 
-    Route::get('edit-password', function () {
-        return view('dashboard.password');
-    })->name('password.edit');
+    Route::resource('users', UserController::class);
 });
